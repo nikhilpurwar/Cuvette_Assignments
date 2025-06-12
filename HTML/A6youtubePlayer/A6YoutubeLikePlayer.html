@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube like Player</title>
+    <style>
+        body
+        {
+            background-color: black;
+            width: 100%;
+            display: flex;
+            gap: 20px;
+            margin: 20px;
+        }
+        
+        .clip1
+        {
+            height: auto;
+            width: 70%;
+            color: white;
+        }
+        #v1        
+        {
+            width: 99%;
+            display: flex;
+            border-radius: 20px;
+        }
+        .clip
+        {
+            width: 60%;
+            height: auto;
+            padding: 10px;
+        }
+        .sideVideo
+        {
+            height: auto;
+            width: 24%;
+            background-color: gray;
+            padding: 20px;
+            border-radius: 20px;
+            display: flex;
+            flex-flow: column;    
+        }
+        .v
+        {
+            padding: 10px;
+        }
+        .v> video{
+            float: left;
+            border-radius: 20px;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="clip1">
+        <video id="v1" src="v1.mp4" controls autoplay muted></video>
+        <h3>VIDEO 1 || Lorem, ipsum dolor Lorem, ipsum</h3>
+        <p>Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Et explicabo excepturi nesciunt dignissimos cumque distinctio accusamus ea provident mollitia est.</p>
+    </div>
+    
+    <div class="sideVideo">
+        <div class="v">
+            <video class="clip" src="v2.mp4" controls></video>
+            <h4>Video 2</h4>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="v">
+            <video class="clip" src="v1.mp4" controls></video>
+            <h4>Video 3</h4>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="v">
+            <video class="clip" src="v2.mp4" controls></video>
+            <h4>Video 4</h4>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="v">
+            <video class="clip" src="v1.mp4" controls></video>
+            <h4>Video 5</h4>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+    </div>
+</body>
+</html>

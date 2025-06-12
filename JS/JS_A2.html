@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><Assignment-2></Assignment-2></title>
+</head>
+<body>
+    <lable for="input1">Enter value:- </lable> 
+    <input type="text" id="input1" /> 
+    <button type="button" onclick="evalString()">Test</button>
+    <script>
+        class OutOfRangeError extends Error {
+            constructor(arg) {
+                super(`Expression should only consist of integers and +-/* characters and not ${arg}`);
+                this.name = "OutOfRangeError";
+            }
+        }
+
+        class InvalidExprError extends Error {
+            constructor() {
+                super("Expression should not have an invalid combination of expression");
+                this.name = "InvalidExprError";
+            }
+        }
+
+        function evalString() {
+            try {
+                let input = document.getElementById("input1").value.trim();
+
+                // Check for invalid characters
+                if (/[^0-9+\-*/ ]/.test(input)) {
+                    throw new OutOfRangeError(input.match(/[^0-9+\-*/ ]/g));
+                }
+
+                // Check for invalid operator combinations
+                if (/(\+\+|\/\/|\*\*|\/\+|\*\+)/.test(input)) {
+                    throw new InvalidExprError();
+                }
+
+                // Check for invalid start and end
+                if (/^[+\/*]/.test(input)) {
+                    throw new SyntaxError("Expression should not start with invalid operator");
+                }
+                if (/[+\/*-]$/.test(input)) {
+                    throw new SyntaxError("Expression should not end with invalid operator");
+                }
+
+                // Evaluate valid expression
+                let result = eval(input);
+                alert("Result: " + result);
+            } catch (error) {
+                alert(`${error.name}: ${error.message}`);
+            }
+        }
+
+    </script>
+</body>
+</html>

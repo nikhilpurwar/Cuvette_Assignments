@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transition</title>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        .box
+        {
+            display: flex;
+            flex-flow: column;
+            width: 40%;
+            border: 5px solid rgb(239, 238, 238);
+            padding: 10px;
+            line-height: 40px;
+        }
+        .div>img
+        {
+            width: 30%;
+        }
+        .div
+        {
+            height: 10vh;
+            display: flex;
+            gap: 15px;
+        }
+        form{
+            width: 100%;
+        }
+        form>input
+        {
+            height: 40px;
+            width: 50%;
+            display: block;
+            font-size: 20px;
+        }
+        #btn
+        {
+            margin-top: 10px;
+            height: 40px;
+            width: 20%;
+            padding: 10px;
+            border-color: #008CBA;
+            border-radius: 12px;
+            transition: 0.4s;
+            background-color: white;
+        }
+        #btn:hover
+        {
+            background-color: #008CBA;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Human Verification Check</h2>
+        <p>Please enter the characters you see in image blow</p>
+        <div class="div">
+            <img src="https://s3.amazonaws.com/thinkific-import/778380/J3sMVOhXTDakH0RIb3vv_image.jpeg" alt="">
+            <form action="">
+                <input type="number">
+                <input id="btn" type="submit" value="Submit">
+            </form>
+        </div>
+        
+    </div>
+</body>
+</html>

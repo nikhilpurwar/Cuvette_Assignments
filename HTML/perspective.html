@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>perspective</title>
+    <style>
+        
+        .box1 {
+            position: relative;
+            border: 3px solid yellow;
+            height: 300px; /* Adjusted height to fit the green box */
+            width: 500px;
+            margin-left: 300px;
+            margin-top: 50px;
+            perspective: 200px;
+            display: flex;
+            justify-content: center;
+        }
+        .box {
+            height: 200px; /* Height of the green box */
+            width: 200px; /* Width of the green box */
+            position: absolute;
+            transform-style: preserve-3d;
+            transform: rotateX(45deg);
+            background: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box"></div>
+    </div>
+</body>
+</html>

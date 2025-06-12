@@ -1,0 +1,71 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STAR</title>
+    <style>
+        .t1
+        {
+            width: 0px;
+            height: 0px;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 190px solid yellow;
+        }
+        .t2
+        {
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-top: 190px solid yellow;
+            position: absolute;
+            top: 75px;
+        }
+    </style>
+</head>
+<body>
+    <div class="t1"></div>
+    <div class="t2"></div>
+</body>
+</html> -->
+
+<html>
+  <head>
+    <title>Star using Box Model</title>
+    <style>
+   
+.star {
+  position:absolute;
+  top:0;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid yellow;
+ 
+}
+
+.star::after {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: -50px;
+}
+.star::after {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid yellow;
+  transform: rotate(180deg);
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="star"></div>
+   
+  </body>
+</html>

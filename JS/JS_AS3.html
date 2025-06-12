@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <style>
+        #gameContainer {
+            width: 400px;
+            height: 400px;
+            display: grid;
+            grid-template-columns: repeat(40, 10px);
+            grid-template-rows: repeat(40, 10px);
+            background-color: black;
+        }
+
+        .food {
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .snakeBodyPixel {
+            background-color: green;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="gameContainer"></div>      
+    <div class="scoreBoard">Score: <span id="score">0</span></div>
+    <script>
+        const gameContainer = document.getElementById("gameContainer");
+        const scoreBoard = document.getElementById("score");
+
+        let snake = [{ x: 1, y: 20 }];
+        let direction = "right";
+        let food = generateFood();
+        let score = 0;
+
+        // Create the grid dynamically
+        for (let i = 0; i < 1600; i++) {
+            let pixel = document.createElement("div");
+            pixel.id = `pixel${i}`;
+            gameContainer.appendChild(pixel);
+        }
+
+        function moveSnake() {
+            let head = { ...snake[0] };
+
+            // Update head position based on direction
+            if (direction === "right") head.x++;
+            if (direction === "left") head.x--;
+            if (direction === "up") head.y--;
+            if (direction === "down") head.y++;
+
+            snake.unshift(head);
+
+            let foodPixel = document.getElementById(`pixel${food.y * 40 + food.x}`);
+
+            // Check if snake eats food
+            if (head.x === food.x && head.y === food.y) {
+                score += 10;
+                scoreBoard.innerText = score;
+                
+                // Remove food visually
+                foodPixel.classList.remove("food");
+                
+                // Generate new food location
+                food = generateFood();
+            } else {
+                snake.pop(); // Remove tail segment
+            }
+
+            renderGame();
+        }
+
+
+        // Generate random food position
+        function generateFood() {
+            return {
+                x: Math.floor(Math.random() * 40),
+                y: Math.floor(Math.random() * 40),
+            };
+        }
+
+        // Render the snake and food on the grid
+        function renderGame() {
+            document.querySelectorAll(".snakeBodyPixel").forEach(pixel => pixel.classList.remove("snakeBodyPixel"));
+            document.getElementById(`pixel${food.y * 40 + food.x}`).classList.add("food");
+
+            snake.forEach(segment => {
+                document.getElementById(`pixel${segment.y * 40 + segment.x}`).classList.add("snakeBodyPixel");
+            });
+        }
+
+        // Handle keyboard input
+        document.addEventListener("keydown", event => {
+            if (event.key === "ArrowRight" && direction !== "left") direction = "right";
+            if (event.key === "ArrowLeft" && direction !== "right") direction = "left";
+            if (event.key === "ArrowUp" && direction !== "down") direction = "up";
+            if (event.key === "ArrowDown" && direction !== "up") direction = "down";
+        });
+
+        setInterval(moveSnake, 100);
+
+    </script>
+</body>
+</html>

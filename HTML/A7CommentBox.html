@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Box</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        *
+        {
+            padding: 0px;
+            margin: 0px; 
+        }
+        body
+        {
+            height: 100%;
+            width: 100%;
+        }
+        h1{
+            margin: 30px;
+        }
+        #comment, .comments
+        {
+            margin-left: 30px;
+        }
+        #commentBox
+        {
+            margin-top: 10px;
+            width: 50%;
+            height: 80px;
+        }
+        .comments
+        {
+            border: 1px solid rgba(128, 128, 128, 0.289);
+            width: 70%;
+            margin-top: 20px;
+            padding: 10px;
+        }
+        p
+        {
+            margin-top: 10px;
+            margin-bottom: 8px;
+        }
+        hr
+        {
+            border: 1px solid rgba(128, 128, 128, 0.289);;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        h4{
+            color: grey;
+            font-style: italic;
+        }
+        #n1::after
+        {
+            content: '  Today';
+            font-weight: 100;
+            font-style: italic;
+            color: grey;
+        }
+        #n2::after
+        {
+            content: ' Yesterday';
+            font-style: italic;
+            font-weight: 100;
+        }
+    </style>
+</head>
+<body>
+    <h1>Comments</h1>
+    <form id="comment" action="">
+        <label for="commentBox">Share your Thoughts below!</label><br>
+        <textarea name="" id="commentBox" placeholder="Write your comment here..."></textarea>
+        <input type="submit" value="Submit">
+    </form>
+    <div class="comments">
+        <p>This is an excellent article!</p>
+        <h4 id="n1">Akash</h4><hr>
+        <p>I totally agree.</p>
+        <h4 id="n2">Mrityunjay</h4><hr>
+    </div>
+</body>
+</html>

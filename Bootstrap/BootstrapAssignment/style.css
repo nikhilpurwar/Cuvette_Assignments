@@ -1,0 +1,325 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+section {
+    display: flex;
+    align-items: center;
+}
+p
+{
+    color: #414a4f;
+}
+li
+{
+    list-style: none;
+}
+header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 5%;
+    z-index: 2;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+.nav {
+    /* width: 30%; */
+    display: flex;
+    gap: 20px;
+    /* justify-content: end; */
+}
+
+
+.hero {
+    min-height: 100vh;
+    width: 100%;
+    color: white;
+    text-align: center;
+    position: relative;
+    display: flex; /* Add flex properties */
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+}
+
+.hero .bg-i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('img/hero.jpg');
+    background-size: cover;
+    z-index: -1;
+}
+.hero .bg-i::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(65, 74, 79, 0.75); 
+}
+.hero h1 {
+    font: bold 60px 'Open Sans', sans-serif;
+    z-index: 1; /* Ensures text stays above the background */
+    position: relative;
+}
+
+
+.work
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 7%;
+}
+.title
+{
+    color: #414a4f;
+	text-transform: capitalize; 
+	font: bold 32px 'Open Sans', sans-serif;
+	margin-bottom: 35px;
+}
+.work p
+{
+    width: 700px;
+    line-height: 2;
+    font:  'Open Sans', sans-serif;
+}
+hr
+{
+    width: 10%;
+    height: 2px;
+    margin-top: 2%;
+    background-color: #2196F3;
+    border: 0;
+}
+.grid{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.work{
+	background-color: #fff;
+}
+
+.work .grid li{
+	padding: 20px;
+	height: 350px;
+	border-radius: 3px;
+
+	background-clip: content-box;
+	background-size: cover;
+	background-position: center;
+	background-color: #333;
+}
+
+.work .grid li.small{
+	flex-basis: 40%;
+}
+
+.work .grid li.large{
+	flex-basis: 60%;
+}
+  
+
+/* .grid
+{
+    display: grid;
+    grid: 350px 350px / auto auto auto;
+    width: 100%;
+    margin-top: 5%;
+}
+
+.grid  .small
+{
+    grid-area: 1/2 / span 1 / span 2;
+}
+.grid  .large
+{
+    grid-area: 2/1 / span 1 / span 2;
+}
+
+.grid li{
+	padding: 20px;
+	background-clip: content-box;
+	background-size: cover;
+	background-position: center;
+	background-color: #333;
+} */
+.feature, .contact{
+    background-color: #eeeeee;
+}
+.services
+{
+    margin-top: 7%;
+    display: flex;
+    gap: 10%;
+}
+.services li{
+    list-style: none;
+    text-align: center;
+    line-height: 5;
+    
+}
+.services p{
+    width: auto;
+    color: #414a4f;
+    font-size: 17px;
+}
+.services h4{
+    color: #414a4f;
+	text-transform: capitalize; 
+	font: bold 20px 'Open Sans', sans-serif;
+    margin-bottom: 10px;
+}
+
+.reviews
+{
+    background-color: white;
+    padding: 7%;
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+}
+.reviews p
+{
+    color: #414a4f;
+    font:  20px 'Open Sans', sans-serif;
+    width: 600px;
+    line-height: 2;
+}
+.reviews .author
+{
+    margin: 8px 0 40px 0;
+}
+
+form
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+    margin: 5% 0;
+}
+form> input
+{
+    width: 35%;
+    height: 10%;
+    padding: 10px;
+    font-size: larger;
+}
+form> a
+{
+    width: 15%;
+    height: 10%;
+    background-color: #2196F3;
+    text-align: center;
+    padding: 15px;
+    font-size: large;
+    text-transform: uppercase;
+    border-radius: 3px;
+    font-weight: 700;
+}
+
+/* footer */
+footer{
+    width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	color: #fff;
+	background-color: #414a4f;
+	padding: 60px 0;
+}
+
+footer ul{
+	display: flex;
+	margin-bottom: 25px;
+	font-size: 32px;
+}
+
+footer ul li{
+	margin: 0 8px;	
+}
+
+footer ul li:first-child{
+	margin-left: 0;	
+}
+
+footer ul li:last-child{
+	margin-right: 0;	
+}
+
+footer p{
+	text-transform: uppercase;
+	font-size: 14px;
+	color: rgba(255,255,255,0.6);
+	margin-bottom: 10px;
+}
+
+footer p a{
+	color: #fff;
+}
+
+@media screen and (max-width: 600px)
+{
+    header
+    {
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+}
+
+@media screen and (max-width: 1000px) 
+{
+    html
+    {
+        width: 100%;
+    }
+    .hero h1 {
+        font: bold 60px 'Open Sans', sans-serif;
+        width: 800px;
+    }
+    .work .grid li.small, .work .grid li.large{
+		flex-basis: 100%;
+	}
+   
+    .services
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    .services p{
+        width: 500px;
+        color: #414a4f;
+    }
+    form> input
+    {
+        width: 50%;
+    }
+    form> a
+    {
+        width: 30%;
+        font-size:medium;
+    }
+}
