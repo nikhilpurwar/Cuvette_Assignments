@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid of Images</title>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body
+        {
+            background-color: white;
+            height: 100vh;
+        }
+        header
+        {
+            height: 10%;
+            color:black;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 20px 100px 0px 100px;
+        }
+        header > button
+        {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: url('https://static.turbosquid.com/Preview/2019/01/23__11_57_17/Signature.png8E828CEA-F578-4C9D-AABF-C85345BE4C07Default.jpg');
+            background-size: contain;
+        }
+        
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-flow: column;
+            height: 80%;
+            gap: 50px;
+        }
+        .grid {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, auto);
+            gap: 25px;
+            max-width: 600px;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
+            border-radius: 15px;
+            background-size:auto;
+        }
+
+        .grid1 {
+            width: 70%;
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            gap: 25px;
+        }
+        .grid1>img
+        {
+            align-self: center;
+            justify-self: center;
+            width: 130px;
+            height: auto;
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
+            border-radius: 15px;
+        }
+        .expanded {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            object-fit: cover;
+        }
+        .hidden {
+            opacity: 0;
+            transform: translateY(-100%);
+            transition: all 0.5s ease-in-out;
+        }
+        .dark-mode {
+            background-color: black;
+            h1{
+                color: white;
+            }
+            button{
+                background: url('https://1.bp.blogspot.com/-hxE33ktDNZk/Udy4BJMU0KI/AAAAAAAABkU/6_8DO2lymh0/s1600/706436main_20121114-304-193Blend_M6-orig_full.jpg');
+                background-size: cover;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PLANETS</h1>
+        <button></button>
+    </header>
+    <div class="container">
+        <div class="grid">
+            <img class="grid-img" src="https://universemagazine.com/wp-content/uploads/2022/08/zm4nfgq29yi91-1536x1536-1.jpg" alt="Moon" onclick="openImage(this)">
+            <img class="grid-img" src="https://bing.com/th/id/OIP.iIgn0tazQ5Tab_KAuUTn3QHaHJ?cb=thvnextc2&rs=1&pid=ImgDetMain" alt="Earth" onclick="openImage(this)">
+            <img class="grid-img" src="https://planetfacts.org/wp-content/uploads/2023/12/planet_mars.jpg" alt="Mars" onclick="openImage(this)">
+            <img class="grid-img" src="https://www.zmescience.com/wp-content/uploads/2019/08/stsci-h-p1936a-m-1999x2000.png" alt="Jupiter" onclick="openImage(this)">
+            <img class="grid-img" src="https://1.bp.blogspot.com/-hxE33ktDNZk/Udy4BJMU0KI/AAAAAAAABkU/6_8DO2lymh0/s1600/706436main_20121114-304-193Blend_M6-orig_full.jpg" alt="Sun" onclick="openImage(this)">
+            <img class="grid-img" src="https://bing.com/th/id/OIP.DcLn9ex94CAq5UcB5UfFwQHaHa?cb=thvnextc2&rs=1&pid=ImgDetMain" alt="Venus" onclick="openImage(this)">
+            <img class="grid-img" src="https://i0.wp.com/www.listland.com/wp-content/uploads/2019/09/Discovery-of-Neptune.jpg?fit=1000%2C1000&ssl=1" alt="Neptune" onclick="openImage(this)">
+            <img class="grid-img" src="https://bing.com/th/id/OIP.J_wBVWejNxP6JvMs4C6QJgHaHa?cb=thvnextc2&w=700&h=700&rs=1&pid=ImgDetMain" alt="Saturn" onclick="openImage(this)">
+            <img class="grid-img" src="https://bing.com/th/id/OIP._YlpEwFyZ-cr_tIqlXBuPgHaHa?cb=thvnextc2&rs=1&pid=ImgDetMain" alt="Mercury" onclick="openImage(this)">
+        </div>
+        <div class="grid1">
+            <img  src="https://universemagazine.com/wp-content/uploads/2022/08/zm4nfgq29yi91-1536x1536-1.jpg" alt="Moon" onclick="openImage(this)">
+            <img  src="https://bing.com/th/id/OIP.iIgn0tazQ5Tab_KAuUTn3QHaHJ?cb=thvnextc2&rs=1&pid=ImgDetMain" alt="Earth" onclick="openImage(this)">
+            <img  src="https://planetfacts.org/wp-content/uploads/2023/12/planet_mars.jpg" alt="Mars" onclick="openImage(this)">
+            <img  src="https://www.zmescience.com/wp-content/uploads/2019/08/stsci-h-p1936a-m-1999x2000.png" alt="Jupiter" onclick="openImage(this)">
+            <img  src="https://1.bp.blogspot.com/-hxE33ktDNZk/Udy4BJMU0KI/AAAAAAAABkU/6_8DO2lymh0/s1600/706436main_20121114-304-193Blend_M6-orig_full.jpg" alt="Sun" onclick="openImage(this)">
+            <img  src="https://bing.com/th/id/OIP.DcLn9ex94CAq5UcB5UfFwQHaHa?cb=thvnextc2&rs=1&pid=ImgDetMain" alt="Venus" onclick="openImage(this)">
+            <img  src="https://i0.wp.com/www.listland.com/wp-content/uploads/2019/09/Discovery-of-Neptune.jpg?fit=1000%2C1000&ssl=1" alt="Neptune" onclick="openImage(this)">
+            <img  src="https://bing.com/th/id/OIP.J_wBVWejNxP6JvMs4C6QJgHaHa?cb=thvnextc2&w=700&h=700&rs=1&pid=ImgDetMain" alt="Saturn" onclick="openImage(this)">
+            <img  src="https://bing.com/th/id/OIP._YlpEwFyZ-cr_tIqlXBuPgHaHa?cb=thvnextc2&rs=1&pid=ImgDetMain" alt="Mercury" onclick="openImage(this)">
+        </div>
+    </div>
+    
+    <script>
+        let grid1 = document.querySelector('.grid1');
+        grid1.style.display = "none";
+        function openImage(clickedImage) 
+        {
+            
+            clickedImage.style.cssText = "border: none";
+            let bigImage = document.querySelector('.expanded');
+            let grid1Img = document.querySelector('.grid1 img');
+            
+            let grid1Images = document.querySelectorAll('.grid1 img');
+            grid1Images.forEach(img => {
+                img.style.cssText = "border: none; width: 130px";
+            });
+            if (bigImage) {
+                bigImage.src = clickedImage.src;
+                bigImage.alt = clickedImage.alt;
+            } 
+            else {
+                clickedImage.classList.add("expanded");
+                grid1.style.display = "grid";
+            }
+            if (grid1.contains(clickedImage)) {
+                clickedImage.style.cssText = "border: 3px solid red; width: 150px;";
+            }
+
+        }
+        let btn = document.querySelector('button');
+        let body = document.querySelector('body');
+
+        btn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            // Change button color based on mode
+            //if (body.classList.contains('dark-mode')) {
+            //    btn.style.backgroundColor = "white";
+            //    btn.style.color = "black";
+            //} else {
+            //    btn.style.backgroundColor = "black";
+            //    btn.style.color = "white";
+            //}
+        });
+    </script>
+</body>
+</html>
