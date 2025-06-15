@@ -1,0 +1,3 @@
+const person = { name: 'John', age: 30 };
+let {name, age} = person;
+console.log(`Me ${name}, I am ${age} year old.`);

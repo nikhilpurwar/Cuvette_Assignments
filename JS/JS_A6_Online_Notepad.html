@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Note</title>
+    <style>
+        body
+        {
+            height: 100vh;
+            background-color: rgb(255, 255, 255) blur;
+            display: flex;
+            align-items: center;
+            background-image: url("https://www.shutterstock.com/image-photo/office-leather-desk-table-pen-600nw-298238480.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+        .container
+        {
+            background-color: black;
+            min-width: 700px;
+            width: auto;
+            padding: 30px;
+            padding-top: 0;
+            border-radius: 10px;
+            color: white;
+            margin-left: 300px;
+        }
+        .head
+        {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            height: 100px;
+        }
+        .head>div
+        {
+            display: flex;
+            gap: 10px;
+            background-color: rgb(232, 212, 82);
+            color: black;
+            padding: 10px;
+            border-radius: 50px;
+            box-shadow: 5px -2px 15px 3px  rgb(232, 212, 82);
+        }
+        #notes
+        {
+            width: 100%;
+            min-height: 500px;
+            font-size: x-large;
+            box-shadow: 0px 0px 40px 1px black inset;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <h1>Your Online Note</h1>
+            <div>
+                <label for="check-box">Auto Save</label>
+                <input id="check-box" type="checkbox">
+            </div>
+        </div>
+        <textarea name="" id="notes" placeholder="Write your notes here...."></textarea>
+    </div>
+    <script>
+        const notePad = document.querySelector('#notes');
+        const checkBox = document.querySelector('#check-box');
+
+        function getNote()
+        {
+            if(localStorage.getItem("autosave-data"))
+            {
+                notePad.value =localStorage.getItem("autosave-data");
+            }
+        }
+        getNote();
+        notePad.addEventListener('input', () =>{
+            if(checkBox.checked)
+            {
+                localStorage.setItem("autosave-data", notePad.value);
+            }
+        });
+        
+    </script>
+</body>
+</html>

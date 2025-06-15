@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+        *
+        {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body
+        {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            color: white;
+        }
+        h1{
+            margin: 20px 0px;
+        }
+        .container
+        {
+            background-color: rgb(57, 57, 57);
+            padding: 40px;
+            border-radius: 12px 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 600px;
+            color: black;
+        }
+        form
+        {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        #item_name, #item_price, form >button
+        {
+            width: 100%;
+            padding: 10px;
+            font-size: large;
+            background-color: #b1b1b1;
+            border: none;
+            border-radius: 25px;
+        }
+        form >button
+        {
+            margin-top: 15px;
+            width: 50%;
+            background-color: green;
+        }
+        table, td, th
+        {
+            text-align: center;
+            border: 2px solid black;
+        }
+        #th2
+        {
+            width: 30%;
+        }
+        th
+        {
+            font-size: larger;
+        }
+        td, th
+        {
+            padding: 10px;
+        }
+        .total
+        {
+            width: 100%;
+            padding: 10px 30px;
+            font-size: large;
+            background-color: #b1b1b1;
+            border: none;
+            border-radius: 25px;
+            display: flex;
+        }
+        #cart
+        {
+            margin-right: 72%;
+        }
+        .totalColor
+        {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Shoping Cart</h1>
+    <div class="container">
+        <form action="">
+            <input id="item_name" type="text" placeholder="Enter Item Name....">
+            <input id="item_price" type="number" placeholder="Enter Price....₹ ">
+            <button type="submit">Add to Cart</button>
+        </form>
+        <h2>Item in Cart</h2>
+        <table>
+            <tr>
+                <th id="th1">Item</th>
+                <th id="th2">Price ₹ </th>
+            </tr>
+        </table>
+        <div class="total">
+            <h4 id="cart"> Cart Value </h4>
+            <h4 class="cartValue"></h4>
+            <h3>₹</h3>
+        </div>
+    </div>
+    <script>
+        const form = document.querySelector('form');
+        const input_name = document.querySelector('#item_name');
+        const input_price = document.querySelector('#item_price');
+        const table = document.querySelector('table');
+        const cartValue = document.querySelector('.cartValue');
+        const totalCart = document.querySelector('.total');
+        let total = 0;
+        
+       
+        form.addEventListener("submit", (e) =>{
+            e.preventDefault();
+            const item_name = input_name.value;
+            const item_price = parseFloat(input_price.value);
+            if(!item_name && !item_price)
+            {
+                alert("Please fill all details");
+                input_name.focus();
+                input_price.focus();
+                return;
+            }
+
+            totalCart.style.backgroundColor = "green";
+            const tr = document.createElement('tr');
+            table.appendChild(tr);
+
+            const tdName = document.createElement('td');
+            tr.appendChild(tdName);
+            tdName.innerHTML = item_name;
+            const tdPrice = document.createElement('td');
+            tr.appendChild(tdPrice);
+            tdPrice.innerHTML = item_price;
+
+            total = total + item_price;
+
+            cartValue.innerHTML = parseFloat(total);
+            input_name.value = "";
+            input_price.value = "";
+        });
+    </script>
+</body>
+</html>
