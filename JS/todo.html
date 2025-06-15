@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body
+        {
+            display: flex;
+            flex-direction: column;
+        }
+        h1{
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+        .container
+        {
+            width: 700px;
+            border: 2px solid black;
+            border-radius: 20px 50px ;
+            align-self: center;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+        form
+        {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 0px;
+        }
+        form > input
+        {
+            width: 50%;
+            height: 40px;
+            border: 1px solid black;
+            border-radius: 5px 0px 0px 5px;
+            background-color: rgb(224, 245, 253);
+            padding: 3px;
+        }
+        form > button, .edit_button, .delete_button{
+            width: 80px;
+            height: 40px;
+            padding: 5px;
+            border: 1px solid black;
+            border-radius: 0px 5px 5px 0px;
+            background-color: rgb(67, 214, 67);
+        }
+      
+        .task
+        {
+            width: 90%;
+            border: 1px solid black;
+            border-radius: 7px;
+            background-color: rgb(136, 213, 136);
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .content
+        {
+            display: flex;
+            flex-direction: column;
+        }
+        .task_input
+        {
+            height: 40px;
+            font-size: large;
+            border: none;
+            background: transparent;
+        }
+        .task_button
+        {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .edit_button
+        {
+            background-color: rgb(230, 203, 50);
+            border-radius: 5px;
+        }
+        .delete_button
+        {
+            background-color: rgb(182, 75, 75);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>To Do</h1>
+    <div class = "container">
+        <form action="">
+            <input id="new_class_input" type="text" placeholder="Add tasks...">
+            <button type="submit">Add</button>
+        </form>
+        <h2>Tasks</h2>
+        <div class="tasks">   </div>
+    </div>
+    
+    <script>
+        const input = document.querySelector('#new_class_input');
+        const form = document.querySelector('form');
+        const tasks = document.querySelector('.tasks');
+        form.addEventListener("submit", (e) =>{
+            e.preventDefault();
+            const userData = input.value;
+            if(!userData)
+            {
+                alert("Enter the Task");
+                input.focus();
+                return;
+            }
+
+            const task = document.createElement('div');
+            task.classList.add('task');
+            tasks.appendChild(task);
+
+
+            const content = document.createElement('div');
+            content.classList.add('content');
+            task.appendChild(content);
+
+            const task_input = document.createElement('input');
+            task_input.classList.add('task_input');
+            task_input.value = userData;
+            task_input.type = "text";
+            task_input.setAttribute("readonly", "readonly"); 
+            content.appendChild(task_input);
+
+            const task_button =document.createElement('div');
+            task_button.classList.add('task_button');
+            task.appendChild(task_button);
+
+            const task_edit = document.createElement('button');
+            task_edit.classList.add('edit_button');
+            task_edit.innerHTML  = "Edit";
+
+            const task_delete = document.createElement('button');
+            task_delete.classList.add('delete_button');
+            task_delete.innerHTML = "Delete";
+
+            task_button.appendChild(task_edit);
+            task_button.appendChild(task_delete);
+
+            input.value = "";
+
+            task_edit.addEventListener('click', () =>{
+                if(task_edit.innerHTML == "Edit")
+                {
+                    task_edit.innerHTML = "Save";
+                    task_input.removeAttribute("readonly");
+                    task_input.focus();
+                }
+                else{
+                    task_input.setAttribute("readonly", "readonly");
+                    task_edit.innerHTML = "Edit";
+                }
+            });
+
+            task_delete.addEventListener('click', () =>{
+                tasks.removeChild(task);
+            });
+        });
+    </script>
+</body>
+</html>
