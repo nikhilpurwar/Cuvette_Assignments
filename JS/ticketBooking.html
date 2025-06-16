@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Details</title>
+    <style>
+        div#maincontent {
+            height: 250px;
+            width: 600px;
+            border: 1px solid #CEE2FA;
+            text-align: left;
+            color: #08438E;
+            font-family: calibri;
+            font-size: 20px;
+            padding: 5px;
+        }
+        div#heading {
+            text-align: center;
+            margin-top: 50px;
+            width: 600px;
+            border: 1px solid #CEE2FA;
+            color: #08438E;
+            background-color: #CEE2FA;
+            font-family: calibri;
+            font-size: 20px;
+            padding: 5px;
+        }
+        h4 {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div id="heading"><b>Theatre Drama</b></div>
+        <div id="maincontent">
+            <h4>Your Ticket Details:</h4><br>
+            <script>
+                let seats = 4;  // Try different values: 1, 2, 3, 4, 6+
+                const costPerTicket = 9;
+                let total = 0, finalPrice = 0;
+
+                if (seats <= 2) {
+                    total = seats * costPerTicket;
+                    document.write(`Seats: ${seats}<br>Total Price: $${total}`);
+                } else if (seats >= 6) {
+                    document.write("Booking not allowed for 6 or more seats.");
+                } else {
+                    let discountRates = [5, 7, 9, 11, 13]; // Discount for customers 1 to 5
+                    total = seats * costPerTicket;
+                    finalPrice = 0;
+
+                    // Using `for` loop
+                    for (let i = 0; i < seats; i++) {
+                        let discountedPrice = costPerTicket - (costPerTicket * discountRates[i] / 100);
+                        document.write(`Ticket for Customer ${i+1} gets ${discountRates[i]}% discount!, Cost is: $${discountedPrice.toFixed(2)}<br>`);
+                        finalPrice += discountedPrice;
+                    }
+
+                    // Display final price
+                    document.write(`<br>For ${seats} tickets, you need to pay: $${finalPrice.toFixed(2)} instead of $${total}`);
+                }
+            </script>
+        </div>
+    </center>
+</body>
+</html>
