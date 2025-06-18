@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM API for HTML modification</title>
+</head>
+<style>
+    img{
+        height: 80vh;
+        width: auto;
+        background-size: cover;
+    }
+</style>
+<body style="background-color:lightblue;text-align:center">
+    <h1 id="hdr1">Here's your ice cream</h1>
+    <img id="img1" src="https://th.bing.com/th/id/OIP.6_xLhrnDehYHiaoZI19OtAHaMn?o=7rm=3&rs=1&pid=ImgDetMain">
+    <p id="p1" onclick="eat()">Click here to eat</p>
+    <script>
+        const state = document.querySelector('#p1');
+        const image = document.querySelector('#img1');
+        const heading = document.querySelector('#hdr1');
+        const bgc = document.querySelector('body');
+        function eat()
+        {
+            if(state.innerHTML == "Click here to eat")
+            {
+                state.innerHTML = "Click to re-fill !!";
+                heading.innerHTML = "Hope You Liked It !!";
+                bgc.style.backgroundColor = 'green';
+                image.src = "https://th.bing.com/th/id/OIP.U8XTVO4PZ07jAA4L4ZWrRwHaNW?w=699&h=1260&rs=1&pid=ImgDetMain";
+            }
+            else if(state.innerHTML == "Click to re-fill !!")
+            {
+                state.innerHTML = "Enjoy Yourself!";
+                heading.innerHTML = "Here's your re-filled cone!";
+                image.src = "https://th.bing.com/th/id/OIP.6_xLhrnDehYHiaoZI19OtAHaMn?o=7rm=3&rs=1&pid=ImgDetMain";
+            }
+        }
+    </script>
+</body>
+</html>

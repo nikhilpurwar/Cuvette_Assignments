@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Handling Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #inputBox {
+            display: block;
+            margin: 10px 0;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>JavaScript Event Handling Example</h2>
+    
+    <!-- Click Event -->
+    <button id="clickButton">Click Me</button>  
+
+    <!-- Keypress & Keyup Events -->
+    <input type="text" id="inputBox" placeholder="Type something...">
+
+    <!-- Blur Event -->
+    <input type="text" id="blurBox" placeholder="Click here and then click outside">
+
+    <!-- Change Event -->
+    <select id="dropdown">
+        <option value="">Select an option</option>
+        <option value="Option 1">Option 1</option>
+        <option value="Option 2">Option 2</option>
+    </select>
+
+    <script>
+        // Click Event
+        document.getElementById("clickButton").onclick = function() {
+            alert("Button Clicked!");
+        };
+
+        // Keypress Event
+        document.getElementById("inputBox").onkeypress = function(event) {
+            console.log("Key Pressed:", event.key);
+        };
+
+        // Keyup Event
+        document.getElementById("inputBox").onkeyup = function(event) {
+            console.log("Key Released:", event.key);
+        };
+
+        // Load Event
+        window.onload = function() {
+            console.log("Page Loaded!");
+        };
+
+        // Blur Event
+        document.getElementById("blurBox").onblur = function() {
+            alert("Input Box Lost Focus!");
+        };
+
+        // Change Event
+        document.getElementById("dropdown").onchange = function() {
+            alert("Selected Value: " + this.value);
+        };
+    </script>
+</body>
+</html>

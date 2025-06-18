@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Details</title>
+    <style>
+        div#maincontent {
+            height: 150px;
+            width: 500px;
+            border: 1px solid #CEE2FA;
+            text-align: left;
+            color: #08438E;
+            font-family: calibri;
+            font-size: 20px;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        div#heading {
+            font-weight: bold;
+            text-align: center;
+            margin-top: 40px;
+            margin-left: 10px;
+            width: 500px;
+            border: 1px solid #CEE2FA;
+            color: #08438E;
+            background-color: #CEE2FA;
+            font-family: calibri;
+            font-size: 20px;
+            padding: 5px;
+        }
+        h2 { margin: 0; }
+        a { cursor: pointer; color: blue; text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div id="heading">
+        <h2>Booking Summary</h2>
+    </div>
+    <div id="maincontent">
+        <p>Cost per ticket is: $9</p>
+        <p>Total cost: <span id="totalCost">$0</span></p>
+        <p><a onclick="calculateDiscount()">Click here for discount</a></p>
+        <p id="discountMessage"></p>
+    </div>
+
+    <script>
+        // Function to calculate total cost
+        function calculateCost(seats) {
+            let pricePerTicket = 9;
+            let totalCost;
+
+            if (seats < 1) {
+                return "Invalid seat count!";
+            }
+            if (seats > 5) {
+                return "Booking not allowed for 6 or more seats.";
+            }
+
+            if (seats <= 2) {
+                totalCost = seats * pricePerTicket;
+            } else {
+                let discount = getDiscountPercentage(seats);
+                totalCost = seats * pricePerTicket * (1 - discount / 100);
+            }
+
+            document.getElementById("totalCost").innerText = `$${totalCost.toFixed(2)}`;
+            return totalCost;
+        }
+
+        // Function to calculate discount percentage based on seats
+        function getDiscountPercentage(seats) {
+            return seats === 3 ? 5 : seats === 4 ? 7 : 9; // Adjusted discount pattern
+        }
+
+        // Function triggered on clicking the discount link
+        function calculateDiscount() {
+            let seats = 4; // Change this value to test with different seat numbers
+            let discount = getDiscountPercentage(seats);
+            document.getElementById("discountMessage").innerText = `Congratulations! ${seats} seats are eligible for a ${discount}% discount.`;
+            calculateCost(seats); // Update cost after discount
+        }
+    </script>
+</body>
+</html>
