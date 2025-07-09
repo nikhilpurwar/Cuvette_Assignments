@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            height: 800px;
+            width: 800px;
+            background-color: lightgray;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        div
+        {
+            height: 600px;
+            width: 600px;
+            background-color: #9cc573;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        span
+        {
+            height: 400px;
+            width: 400px;
+            background-color: rgb(197, 143, 143);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    Body
+    <div>
+        Div
+        <span>
+            Span
+            <button>Click Here</button>
+        </span>
+    </div>
+
+    <script>
+        const btn = document.querySelector("button");
+        const span = document.querySelector("span");
+        const div = document.querySelector("div");
+        const body = document.querySelector("body");
+
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            console.log("Button Clicked");
+        });
+
+        span.addEventListener('click', (e) => {
+            e.stopPropagation();
+            console.log("Span Clicked");
+        });
+
+        div.addEventListener('click', (e) => {
+            e.stopPropagation();
+            console.log("Div Clicked");
+        });
+    </script>
+</body>
+</html>

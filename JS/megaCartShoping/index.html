@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>megaCart - Login</title>
+  <link rel="stylesheet" href="loginSignupStyle.css">
+</head>
+<body>
+  <h2>Login</h2>
+  <form onsubmit="loginUser(event)">
+    <input type="text" id="username" placeholder="Username" required><br>
+    <input type="password" id="password" placeholder="Password" required><br>
+    <button type="submit">Login</button>
+    <a href="signup.html">Don't have an account? Sign up</a>
+  </form>
+  <p id="loginMsg"></p>
+
+  <script>
+    function loginUser(e) {
+      e.preventDefault();
+      const uname = document.getElementById("username").value;
+      const pwd = document.getElementById("password").value;
+      const user = JSON.parse(localStorage.getItem("user"));
+
+      if (user && user.username === uname && user.password === pwd) {
+        window.location.href = "main.html";
+      } else {
+        document.getElementById("loginMsg").innerText = "Invalid credentials";
+      }
+    }
+  </script>
+</body>
+</html>

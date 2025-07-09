@@ -1,0 +1,24 @@
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #282c34;
+    padding: 10px 0;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    font-size: 1.2em;
+    color: white;
+
+    list-style-type: none;
+    margin: 0;
+    padding-inline-start: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}

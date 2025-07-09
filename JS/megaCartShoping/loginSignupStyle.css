@@ -1,0 +1,67 @@
+/* Common container styling */
+body {
+  background-color: #f0f2f5;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-flow: column;
+}
+
+form {
+  background-color: white;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 320px;
+  text-align: center;
+}
+
+form h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #008060;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #006147;
+}
+
+p {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+a {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #0066cc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

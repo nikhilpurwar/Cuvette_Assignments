@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Delegation Demo</title>
+  <style>
+    .container {
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+
+    .item {
+      margin: 10px;
+      padding: 15px;
+      background-color: #cce5ff;
+      cursor: pointer;
+    }
+    #clickMe
+    {
+      width: 100px;
+      height: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="clickMe">Click Me</button>
+  <script>
+    const button = document.getElementById("clickMe");
+
+    button.addEventListener("click", function () {
+      console.log("Clicked element:", this);
+      this.style.backgroundColor = "lightblue";
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>megaCart - Sign Up</title>
+  <link rel="stylesheet" href="loginSignupStyle.css">
+</head>
+<body>
+  <h2>Sign Up</h2>
+  <form onsubmit="signup(event)">
+    <input type="text" id="newUser" placeholder="Username" required><br>
+    <input type="password" id="newPass" placeholder="Password" required><br>
+    <button type="submit">Sign Up</button>
+    <a href="index.html">Back to Login</a>
+  </form>
+  <p id="signupMsg"></p>
+
+  <script>
+    function signup(e) {
+      e.preventDefault();
+      const username = document.getElementById("newUser").value;
+      const password = document.getElementById("newPass").value;
+      localStorage.setItem("user", JSON.stringify({ username, password }));
+      document.getElementById("signupMsg").innerText = "User registered!";
+    }
+  </script>
+</body>
+</html>

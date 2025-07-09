@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>megaCart - Cart</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+            font-family: 'Segoe UI', sans-serif;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #008060;
+        }
+
+        ul#cartItems {
+            list-style: none;
+            padding: 0;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        ul#cartItems li {
+            background: white;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 18px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .remove-btn {
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .remove-btn:hover {
+            background-color: #c9302c;
+        }
+
+        h3#total {
+            margin-top: 40px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #ff6f00;
+        }
+
+        .home-btn {
+            margin-top: 30px;
+            text-decoration: none;
+            background-color: #008060;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .home-btn:hover {
+            background-color: #006147;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Your Cart</h2>
+    <ul id="cartItems"></ul>
+    <h3 id="total"></h3>
+    <a href="main.html" class="home-btn">← Back to Home</a>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const list = document.getElementById("cartItems");
+        const totalDisplay = document.getElementById("total");
+
+        function renderCart() {
+            list.innerHTML = "";
+            let sum = 0;
+
+            cart.forEach((item, index) => {
+                sum += item.price;
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    ${item.name} - ₹${item.price}
+                    <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+                `;
+                list.appendChild(li);
+            });
+
+            totalDisplay.innerText = `Total: ₹${sum}`;
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCart();
+        }
+
+        renderCart();
+    </script>
+</body>
+
+</html>
