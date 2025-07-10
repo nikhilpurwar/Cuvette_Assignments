@@ -2,6 +2,11 @@ import React from 'react'
 
 export const About = () => {
   return (
-    <h1>About</h1>
+    <div className="about">
+      <h1>About</h1>
+      <div className="container">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae assumenda odit, earum exercitationem facilis harum, consequatur eveniet, quam quidem numquam itaque officiis consequuntur doloribus voluptate!</p>
+      </div>
+    </div>
   )
 }
