@@ -6,8 +6,9 @@ export const Contact = () => {
       <h1>Contact</h1>
       <form action="">
         <input type="text" placeholder='Subject'/>
-        <label for="description">Description:</label>
+        <label htmlFor="description">Description:</label>
         <textarea id="description" name="description" rows="4" cols="50" placeholder="Enter your description here..."></textarea>
+        <button>Submit</button>
       </form>
     </div>
   )
