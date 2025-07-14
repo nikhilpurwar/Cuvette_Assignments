@@ -21,6 +21,7 @@ export const SignUp = () => {
             number: "",
         });
     }
+    
     const handleReset = () => {
         setUser({
             name: "",
