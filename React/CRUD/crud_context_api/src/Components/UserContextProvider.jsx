@@ -36,7 +36,6 @@ const userContextProvider = ({ children }) => {
             id: null,
         });
     };
-
     const handleDelete = (id) => {
         const filteredUsers = users.filter((item) => item.id !== id);
         setUsersData(filteredUsers);
