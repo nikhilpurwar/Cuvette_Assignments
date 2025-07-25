@@ -13,7 +13,7 @@ const Navbar = () => {
     <>
       <nav>
         <div className="logo">
-          <Link to={'home'}> <h1>GLX TRV</h1> </Link>
+          <Link to={'/'}> <h1>GLX TRV</h1> </Link>
         </div>
         <div className= {click ? 'active' : 'menu'}>
           <Link to={'/'}>Home</Link>

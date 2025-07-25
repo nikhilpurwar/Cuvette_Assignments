@@ -5,7 +5,6 @@ import { Pricing } from './Pages/Pricing/Pricing'
 import { Training } from './Pages/Training/Training'
 import { Contact } from './Pages/Contact/Contact'
 import Navbar from './Components/Navbar/Navbar'
-import {Footer} from './Components/Footer/Footer'
 function App() {
 
   return (
@@ -19,7 +18,6 @@ function App() {
           <Route path='/contact' element={<Contact />} />
         </Routes>
       </main>
-      <Footer />
     </Router>
   )
 }
